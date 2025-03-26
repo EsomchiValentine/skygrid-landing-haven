@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import Section from './Section';
 import Container from './Container';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,13 @@ import {
   FormMessage
 } from '@/components/ui/form';
 import { toast } from '@/hooks/use-toast';
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name is required' }),
@@ -30,6 +37,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 const Contact = () => {
   const [contactMethod, setContactMethod] = useState<'email' | 'whatsapp'>('email');
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -51,6 +59,14 @@ const Contact = () => {
       const whatsappMessage = `Hello, my name is ${data.name}. ${data.message} (Reply to: ${data.email})`;
       const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
       window.open(whatsappUrl, '_blank');
+      
+      // Show success dialog for WhatsApp
+      setShowSuccess(true);
+      
+      // Hide success dialog after 3 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
     }
 
     toast({
@@ -214,6 +230,21 @@ const Contact = () => {
             </Form>
           </div>
         </div>
+        
+        {/* Success Dialog */}
+        <Dialog open={showSuccess} onOpenChange={setShowSuccess}>
+          <DialogContent className="bg-gray-900 text-white border-gray-800">
+            <DialogHeader>
+              <DialogTitle className="flex items-center justify-center text-center">
+                <CheckCircle className="h-12 w-12 text-green-500 mb-2" />
+                <span className="text-xl block mt-2">Message Sent Successfully!</span>
+              </DialogTitle>
+              <DialogDescription className="text-center text-gray-300 mt-2">
+                Your WhatsApp message has been sent. We'll get back to you soon.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </Container>
     </Section>
   );
