@@ -54,21 +54,21 @@ const Clients: React.FC = () => {
   }, [isPaused]);
 
   return (
-    <Section className="py-10 bg-black" id="clients">
+    <Section className="py-16 bg-black" id="clients">
       <Container>
-        <div className="text-center mb-8">
-          <span className="inline-block px-4 py-1 rounded-full bg-gray-800 text-skyblue text-sm font-medium mb-3">
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-2 rounded-full bg-gray-800 text-skyblue text-sm font-medium mb-4">
             OUR CLIENTS
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">Trusted by Industry Leaders</h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-sm">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Trusted by Industry Leaders</h2>
+          <p className="text-gray-300 max-w-3xl mx-auto">
             We're proud to work with these innovative companies who trust our expertise
           </p>
         </div>
         
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto px-10">
           <div 
-            className="aspect-[5/3] max-w-2xl mx-auto relative"
+            className="aspect-square max-w-lg mx-auto relative"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -76,14 +76,14 @@ const Clients: React.FC = () => {
               // Calculate position on the circle
               const angle = (rotation + index * (360 / clientLogos.length)) % 360;
               const radian = (angle * Math.PI) / 180;
-              const x = 50 + 35 * Math.cos(radian);
-              const y = 50 + 25 * Math.sin(radian);
+              const x = 50 + 40 * Math.cos(radian);
+              const y = 50 + 40 * Math.sin(radian);
               
               // Calculate z-index based on y-position to create depth effect
               const zIndex = Math.round(50 - 40 * Math.sin(radian));
               
               // Calculate scale based on y-position for perspective effect
-              const scale = 0.6 + 0.3 * (y / 100);
+              const scale = 0.7 + 0.3 * (y / 100);
               
               return (
                 <div
@@ -97,15 +97,15 @@ const Clients: React.FC = () => {
                     transition: 'transform 0.3s ease-out'
                   }}
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 glass-panel rounded-full flex items-center justify-center group-hover:bg-white/10 cursor-pointer">
+                  <div className="w-24 h-24 md:w-32 md:h-32 glass-panel rounded-full flex items-center justify-center group-hover:bg-white/10 cursor-pointer">
                     <img 
                       src={client.logo} 
                       alt={client.name} 
-                      className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 object-contain transition-transform duration-300 group-hover:scale-110" 
+                      className="max-h-16 md:max-h-20 max-w-16 md:max-w-20 object-contain transition-transform duration-300 group-hover:scale-110" 
                     />
                   </div>
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-center">
-                    <span className="bg-gray-800 text-white px-2 py-1 rounded text-xs">{client.name}</span>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-center">
+                    <span className="bg-gray-800 text-white px-2 py-1 rounded text-sm">{client.name}</span>
                   </div>
                 </div>
               );
