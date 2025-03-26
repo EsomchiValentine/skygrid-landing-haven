@@ -5,11 +5,9 @@ import Container from './Container';
 import { 
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
+  CarouselItem
 } from "@/components/ui/carousel";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useInterval } from '@/hooks/useInterval';
 
 const Clients: React.FC = () => {
   const clientLogos = [
@@ -39,19 +37,29 @@ const Clients: React.FC = () => {
     }
   ];
 
-  const [rotation, setRotation] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  
-  // Auto-rotate the globe
-  useEffect(() => {
-    if (!isPaused) {
-      const interval = setInterval(() => {
-        setRotation(prev => (prev + 0.5) % 360);
-      }, 50);
-      
-      return () => clearInterval(interval);
+  const [api, setApi] = useState<any>();
+  const [current, setCurrent] = useState(0);
+
+  // Auto-scroll function using custom interval
+  useInterval(() => {
+    if (api) {
+      api.scrollNext();
     }
-  }, [isPaused]);
+  }, 3000);
+
+  // Update current slide index when the carousel moves
+  useEffect(() => {
+    if (!api) return;
+
+    const handleSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on("select", handleSelect);
+    return () => {
+      api.off("select", handleSelect);
+    };
+  }, [api]);
 
   return (
     <Section className="py-10 bg-black" id="clients">
@@ -66,51 +74,46 @@ const Clients: React.FC = () => {
           </p>
         </div>
         
-        <div className="relative max-w-4xl mx-auto">
-          <div 
-            className="aspect-[5/3] max-w-2xl mx-auto relative"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+        <div className="max-w-5xl mx-auto px-4 relative">
+          <Carousel 
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
           >
-            {clientLogos.map((client, index) => {
-              // Calculate position on the circle
-              const angle = (rotation + index * (360 / clientLogos.length)) % 360;
-              const radian = (angle * Math.PI) / 180;
-              const x = 50 + 35 * Math.cos(radian);
-              const y = 50 + 25 * Math.sin(radian);
-              
-              // Calculate z-index based on y-position to create depth effect
-              const zIndex = Math.round(50 - 40 * Math.sin(radian));
-              
-              // Calculate scale based on y-position for perspective effect
-              const scale = 0.6 + 0.3 * (y / 100);
-              
-              return (
-                <div
-                  key={index}
-                  className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
-                  style={{
-                    left: `${x}%`,
-                    top: `${y}%`,
-                    zIndex,
-                    transform: `translate(-50%, -50%) scale(${scale})`,
-                    transition: 'transform 0.3s ease-out'
-                  }}
-                >
-                  <div className="w-24 h-24 md:w-28 md:h-28 glass-panel rounded-full flex items-center justify-center group-hover:bg-white/10 cursor-pointer">
-                    <img 
-                      src={client.logo} 
-                      alt={client.name} 
-                      className="max-h-16 md:max-h-20 max-w-16 md:max-w-20 object-contain transition-transform duration-300 group-hover:scale-110" 
-                    />
+            <CarouselContent>
+              {clientLogos.map((client, index) => (
+                <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4 pl-4">
+                  <div className="group relative p-2">
+                    <div className="w-full aspect-square bg-black/30 rounded-xl glass-panel flex items-center justify-center p-6 border border-white/10 group-hover:border-white/30 transition-all duration-300">
+                      <img 
+                        src={client.logo} 
+                        alt={client.name} 
+                        className="max-h-24 max-w-24 object-contain transition-transform duration-300 group-hover:scale-110" 
+                      />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-xl">
+                      <p className="text-white text-center text-sm font-medium">{client.name}</p>
+                    </div>
                   </div>
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-center">
-                    <span className="bg-gray-800 text-white px-2 py-1 rounded text-xs">{client.name}</span>
-                  </div>
-                </div>
-              );
-            })}
-            <div className="absolute inset-0 rounded-full border-2 border-white/10 border-dashed opacity-30 pointer-events-none"></div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          
+          <div className="flex justify-center gap-1 mt-4">
+            {clientLogos.map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 w-2 rounded-full transition-all ${
+                  current === index ? "bg-white w-4" : "bg-white/30"
+                }`}
+                onClick={() => api?.scrollTo(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </Container>
