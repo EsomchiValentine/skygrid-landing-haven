@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import Container from './Container';
@@ -70,24 +69,24 @@ const Clients: React.FC = () => {
   }, []);
 
   return (
-    <Section className="py-16 bg-black" id="clients">
+    <Section className="py-16 bg-gray-100" id="clients">
       <Container>
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 rounded-full bg-gray-800 text-skyblue text-sm font-medium mb-4">
             OUR CLIENTS
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Trusted by Industry Leaders</h2>
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Trusted by Industry Leaders</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">
             We're proud to work with these innovative companies who trust our expertise
           </p>
         </div>
         
         <div className="relative overflow-hidden">
           {/* Gradient overlay on left */}
-          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10"></div>
+          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-100 to-transparent z-10"></div>
           
           {/* Gradient overlay on right */}
-          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10"></div>
+          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-100 to-transparent z-10"></div>
           
           <Carousel
             className="w-full max-w-6xl mx-auto"
