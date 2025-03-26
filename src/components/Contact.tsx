@@ -46,11 +46,11 @@ const Contact = () => {
       const mailtoLink = `mailto:info@skygridtech.org?subject=Contact from ${data.name}&body=${encodeURIComponent(data.message)}%0A%0AFrom: ${data.name}%0AEmail: ${data.email}`;
       window.open(mailtoLink, '_blank');
     } else {
-      // WhatsApp submission
-      const phoneNumber = '+2348153428584';
+      // WhatsApp submission - using proper WhatsApp API format
+      const phoneNumber = '2348153428584'; // Remove the '+' as it's included in the URL format
       const whatsappMessage = `Hello, my name is ${data.name}. ${data.message} (Reply to: ${data.email})`;
-      const whatsappLink = `https://wa.me/${phoneNumber.replace(/\+/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
-      window.open(whatsappLink, '_blank');
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
     }
 
     toast({
