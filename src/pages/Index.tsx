@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
 import Solutions from '@/components/Solutions';
-import Testimonials from '@/components/Testimonials';
+import Offerings from '@/components/Offerings';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
@@ -48,7 +48,7 @@ const Index = () => {
         <Hero />
         <AboutUs />
         <Solutions />
-        <Testimonials />
+        <Offerings />
       </main>
       <Footer />
       <ScrollToTop />
