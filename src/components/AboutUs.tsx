@@ -40,8 +40,8 @@ const AboutUs: React.FC = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="bg-gray-900 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/lovable-uploads/ccbebf31-21e0-4b05-9655-4d179c453cf4.png" 
-                alt="Code on screen" 
+                src="/lovable-uploads/5c7eb984-f2a6-40c7-a081-c4a6f72408ed.png" 
+                alt="Technology Solutions" 
                 className="w-full h-auto"
               />
             </div>
