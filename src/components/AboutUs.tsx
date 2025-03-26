@@ -2,7 +2,6 @@
 import React from 'react';
 import Section from './Section';
 import Container from './Container';
-import { Button } from './ui/button';
 import { Check } from 'lucide-react';
 
 const AboutUs: React.FC = () => {
@@ -40,7 +39,7 @@ const AboutUs: React.FC = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="bg-gray-900 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/lovable-uploads/5c7eb984-f2a6-40c7-a081-c4a6f72408ed.png" 
+                src="/lovable-uploads/f69ee069-ddbe-459e-8a55-059761a4b9de.png" 
                 alt="Code on screen" 
                 className="w-full h-auto"
               />
@@ -79,9 +78,9 @@ const AboutUs: React.FC = () => {
               ))}
             </div>
             
-            <Button className="bg-skyblue hover:bg-skydark px-8 py-6 h-auto text-white font-medium rounded-md">
+            <button className="bg-skyblue hover:bg-skydark px-8 py-3 text-white font-medium rounded-md">
               Explore Our Services
-            </Button>
+            </button>
           </div>
         </div>
       </Container>
