@@ -97,11 +97,11 @@ const Clients: React.FC = () => {
                     transition: 'transform 0.3s ease-out'
                   }}
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 glass-panel rounded-full flex items-center justify-center group-hover:bg-white/10 cursor-pointer">
+                  <div className="w-24 h-24 md:w-28 md:h-28 glass-panel rounded-full flex items-center justify-center group-hover:bg-white/10 cursor-pointer">
                     <img 
                       src={client.logo} 
                       alt={client.name} 
-                      className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 object-contain transition-transform duration-300 group-hover:scale-110" 
+                      className="max-h-16 md:max-h-20 max-w-16 md:max-w-20 object-contain transition-transform duration-300 group-hover:scale-110" 
                     />
                   </div>
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-center">
