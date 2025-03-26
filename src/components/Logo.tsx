@@ -10,7 +10,7 @@ const Logo: React.FC<LogoProps> = ({ className, dark }) => {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <img 
-        src="/lovable-uploads/66a3a9b8-7083-4160-b6c9-fec6f7dc3b0f.png" 
+        src="/lovable-uploads/0527f868-67f6-462b-9867-8b1909ade11a.png" 
         alt="Skygridtech Logo" 
         className="h-10" 
       />
