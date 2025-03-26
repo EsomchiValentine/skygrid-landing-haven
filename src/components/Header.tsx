@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Logo from './Logo';
@@ -18,7 +17,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when switching from mobile to desktop
   useEffect(() => {
     if (!isMobile) {
       setIsMenuOpen(false);
@@ -32,7 +30,6 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Logo className="relative z-20" />
         
-        {/* Mobile Menu Button */}
         <button 
           className="relative z-20 md:hidden p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -43,7 +40,6 @@ const Header: React.FC = () => {
           <div className={`w-6 h-0.5 bg-txtblack mt-1.5 transition-all ${isMenuOpen ? '-translate-y-1 -rotate-45' : ''}`} />
         </button>
         
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <NavLinks />
           <div className="flex items-center">
@@ -55,7 +51,6 @@ const Header: React.FC = () => {
           </div>
         </nav>
         
-        {/* Mobile Navigation Menu */}
         <div className={`fixed inset-0 bg-white z-10 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}>
@@ -95,7 +90,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ onClick, direction = 'horizontal' }
         <span className={underlineClasses}></span>
       </a>
       <a href="#about" className={linkClasses} onClick={onClick}>
-        About
+        About Us
         <span className={underlineClasses}></span>
       </a>
       <a href="#testimonials" className={linkClasses} onClick={onClick}>
