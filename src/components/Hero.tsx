@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from './Button';
 import Container from './Container';
@@ -10,13 +9,13 @@ const Hero: React.FC = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="text-left">
-            <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-skyblue text-sm font-medium mb-6 animate-fade-in">Cloud Innovation Redefined</span>
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-skyblue text-sm font-medium mb-6 animate-fade-in">CLOUD COMPUTING & SOFTWARE SOLUTIONS</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-txtblack animate-fade-up" style={{ animationDelay: '300ms' }}>
-              Next-Gen Cloud <br />
-              <span className="text-skyblue">Computing Solutions</span>
+              Elevate Your Business <br />
+              <span className="text-skyblue">to the Cloud</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 max-w-lg animate-fade-up" style={{ animationDelay: '500ms' }}>
-              Skygridtech delivers cutting-edge cloud infrastructure and software solutions to accelerate your business transformation and innovation.
+              Transform your business with our cutting-edge cloud computing and software solutions designed for the modern enterprise.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '700ms' }}>
               <Button size="lg">Get Started</Button>
