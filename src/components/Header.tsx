@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Logo from './Logo';
-import Button from './Button';
+import { Button } from '@/components/ui/button';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,9 +46,12 @@ const Header: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <NavLinks />
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm">Log in</Button>
-            <Button size="sm">Get Started</Button>
+          <div className="flex items-center">
+            <Button 
+              className="bg-skyblue hover:bg-skydark text-white font-medium rounded-md"
+            >
+              Get Started
+            </Button>
           </div>
         </nav>
         
@@ -59,8 +62,11 @@ const Header: React.FC = () => {
           <div className="flex flex-col items-center justify-center h-full text-center space-y-8">
             <NavLinks onClick={() => setIsMenuOpen(false)} direction="vertical" />
             <div className="flex flex-col items-center gap-4 mt-8">
-              <Button variant="outline" size="md" className="w-40">Log in</Button>
-              <Button size="md" className="w-40">Get Started</Button>
+              <Button 
+                className="bg-skyblue hover:bg-skydark text-white font-medium rounded-md w-40"
+              >
+                Get Started
+              </Button>
             </div>
           </div>
         </div>
@@ -80,20 +86,24 @@ const NavLinks: React.FC<NavLinksProps> = ({ onClick, direction = 'horizontal' }
   
   return (
     <div className={`flex ${direction === 'vertical' ? 'flex-col space-y-6' : 'space-x-8'}`}>
-      <a href="#features" className={linkClasses} onClick={onClick}>
-        Features
+      <a href="/" className={linkClasses} onClick={onClick}>
+        Home
         <span className={underlineClasses}></span>
       </a>
-      <a href="#solutions" className={linkClasses} onClick={onClick}>
-        Solutions
-        <span className={underlineClasses}></span>
-      </a>
-      <a href="#pricing" className={linkClasses} onClick={onClick}>
-        Pricing
+      <a href="#services" className={linkClasses} onClick={onClick}>
+        Services
         <span className={underlineClasses}></span>
       </a>
       <a href="#about" className={linkClasses} onClick={onClick}>
         About
+        <span className={underlineClasses}></span>
+      </a>
+      <a href="#testimonials" className={linkClasses} onClick={onClick}>
+        Testimonials
+        <span className={underlineClasses}></span>
+      </a>
+      <a href="#contact" className={linkClasses} onClick={onClick}>
+        Contact
         <span className={underlineClasses}></span>
       </a>
     </div>
