@@ -64,14 +64,14 @@ const Clients: React.FC = () => {
               {clientLogos.map((client, index) => (
                 <CarouselItem key={index} className="basis-1/1 md:basis-1/2 lg:basis-1/3 pl-4">
                   <div className="p-1">
-                    <div className="h-40 flex items-center justify-center p-6 glass-panel rounded-xl transition-all duration-300 group">
+                    <div className="h-40 flex items-center justify-center p-6 glass-panel rounded-xl group hover:bg-white/10 transition-all duration-300">
                       <img 
                         src={client.logo} 
                         alt={client.name} 
-                        className="h-full object-contain animate-float transition-all duration-500 group-hover:scale-110" 
+                        className="h-full object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" 
                       />
                     </div>
-                    <h3 className="text-center text-gray-700 mt-3 font-medium animate-fade-in">{client.name}</h3>
+                    <h3 className="text-center text-gray-700 mt-3 font-medium opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">{client.name}</h3>
                   </div>
                 </CarouselItem>
               ))}
