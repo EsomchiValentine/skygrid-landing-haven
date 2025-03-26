@@ -6,7 +6,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious
 } from "@/components/ui/carousel";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Clients: React.FC = () => {
   const clientLogos = [
@@ -41,7 +44,7 @@ const Clients: React.FC = () => {
           </p>
         </div>
         
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto px-10">
           <Carousel
             className="w-full"
             opts={{
@@ -65,6 +68,12 @@ const Clients: React.FC = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <CarouselPrevious className="left-0 bg-gray-800 text-white hover:bg-gray-700">
+              <ArrowLeft className="h-5 w-5" />
+            </CarouselPrevious>
+            <CarouselNext className="right-0 bg-gray-800 text-white hover:bg-gray-700">
+              <ArrowRight className="h-5 w-5" />
+            </CarouselNext>
           </Carousel>
         </div>
       </Container>
