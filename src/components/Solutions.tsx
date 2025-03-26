@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Section from './Section';
 import Container from './Container';
-import Button from './Button';
 
 const Solutions: React.FC = () => {
   const solutions = [
@@ -92,11 +91,6 @@ const Solutions: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              
-              <div className="flex flex-wrap gap-4">
-                <Button>Learn More</Button>
-                <Button variant="outline">Get a Demo</Button>
-              </div>
             </div>
             
             <div className="order-1 lg:order-2 flex justify-center">
