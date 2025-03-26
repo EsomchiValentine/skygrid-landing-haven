@@ -2,109 +2,129 @@
 import React from 'react';
 import Section from './Section';
 import Container from './Container';
-import { Check, Info, Star } from 'lucide-react';
+import { Award, Users, Clock, ShieldCheck } from 'lucide-react';
 import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
 
 const AboutUs: React.FC = () => {
-  const features = [
+  const teams = [
     {
-      title: "Industry-leading cloud infrastructure with 99.9% uptime",
-      icon: <Check className="h-5 w-5 text-skyblue flex-shrink-0" />
+      name: "Leadership Team",
+      description: "Visionaries guiding our company towards excellence and innovation.",
+      icon: <Award className="h-8 w-8 text-skyblue" />
     },
     {
-      title: "Certified security protocols and data protection",
-      icon: <Check className="h-5 w-5 text-skyblue flex-shrink-0" />
+      name: "Development Team",
+      description: "Expert engineers building robust solutions with cutting-edge technology.",
+      icon: <Users className="h-8 w-8 text-skyblue" />
     },
     {
-      title: "24/7 technical support and monitoring",
-      icon: <Check className="h-5 w-5 text-skyblue flex-shrink-0" />
+      name: "Support Team",
+      description: "Dedicated professionals ensuring your success around the clock.",
+      icon: <Clock className="h-8 w-8 text-skyblue" />
     },
     {
-      title: "Customizable software solutions for your business needs",
-      icon: <Check className="h-5 w-5 text-skyblue flex-shrink-0" />
-    },
-    {
-      title: "Seamless systems integration capabilities",
-      icon: <Check className="h-5 w-5 text-skyblue flex-shrink-0" />
-    },
-    {
-      title: "Scalable resources that grow with your business",
-      icon: <Check className="h-5 w-5 text-skyblue flex-shrink-0" />
+      name: "Security Team",
+      description: "Specialists safeguarding your data with industry-leading protocols.",
+      icon: <ShieldCheck className="h-8 w-8 text-skyblue" />
     }
   ];
 
-  const stats = [
-    { value: "10+", label: "Years Experience" },
-    { value: "500+", label: "Happy Clients" },
-    { value: "99.9%", label: "Uptime" },
-    { value: "24/7", label: "Support" }
-  ];
-
   return (
-    <Section className="py-20 bg-gray-50" id="about">
+    <Section className="py-20 bg-white" id="about">
       <Container>
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-skyblue text-sm font-medium mb-4">ABOUT US</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-txtblack">
-            Transforming Businesses With Innovative Technology
-          </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            SkyGridTech is a leading provider of cloud computing and software solutions, dedicated to
-            helping businesses optimize their operations, improve efficiency, and drive innovation.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div>
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-skyblue text-sm font-medium mb-4">ABOUT US</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-txtblack">
+              Innovation-Driven Solutions for Modern Businesses
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Founded in 2013, SkyGridTech has been at the forefront of digital transformation, 
+              helping businesses across industries leverage technology to achieve their goals. 
+              Our team of experts brings decades of combined experience to every project, 
+              ensuring exceptional results that drive real business value.
+            </p>
+            <Button className="bg-skyblue hover:bg-skydark">
+              Meet Our Team
+            </Button>
+          </div>
+          
           <div className="relative">
-            <div className="bg-white rounded-lg overflow-hidden shadow-xl">
+            <div className="bg-white rounded-xl overflow-hidden shadow-xl">
               <img 
-                src="/lovable-uploads/5c7eb984-f2a6-40c7-a081-c4a6f72408ed.png" 
-                alt="Technology Solutions" 
-                className="w-full h-auto"
+                src="/lovable-uploads/ccbebf31-21e0-4b05-9655-4d179c453cf4.png" 
+                alt="Our Team" 
+                className="w-full h-auto object-cover"
               />
-            </div>
-            <div className="absolute -bottom-6 -right-6 md:bottom-8 md:right-8 w-24 h-24 md:w-32 md:h-32 bg-skyblue rounded-full flex items-center justify-center shadow-lg">
-              <div className="text-white text-center">
-                <Star className="h-8 w-8 mx-auto mb-1" />
-                <p className="font-bold text-sm md:text-base">Industry Leader</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                <p className="text-white font-medium">Our global team working together to deliver innovation</p>
               </div>
             </div>
           </div>
-          
-          <div>
-            <h3 className="text-2xl font-bold mb-6 text-txtblack">Our Commitment To Excellence</h3>
-            <p className="text-gray-600 mb-8">
-              With our industry expertise and cutting-edge technology, we deliver tailored solutions that
-              address your unique business challenges. Our team of experts is committed to providing
-              exceptional service and innovative solutions that help your business thrive in today's
-              competitive landscape.
+        </div>
+        
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-txtblack">Our Core Teams</h3>
+            <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
+              Our diverse experts collaborate to deliver comprehensive solutions that drive your business forward.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  {feature.icon}
-                  <span className="text-gray-700">{feature.title}</span>
-                </div>
-              ))}
-            </div>
-            
-            <Button variant="default" size="lg" className="bg-skyblue hover:bg-skydark">
-              Explore Our Services
-            </Button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teams.map((team, index) => (
+              <div key={index} className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-shadow">
+                <div className="mb-4">{team.icon}</div>
+                <h4 className="text-xl font-semibold mb-2 text-txtblack">{team.name}</h4>
+                <p className="text-gray-600">{team.description}</p>
+              </div>
+            ))}
           </div>
         </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          {stats.map((stat, index) => (
-            <Card key={index} className="border-none shadow-lg bg-white">
-              <CardContent className="p-6 text-center">
-                <p className="text-3xl md:text-4xl font-bold text-skyblue mb-2">{stat.value}</p>
-                <p className="text-gray-600">{stat.label}</p>
-              </CardContent>
-            </Card>
-          ))}
+        
+        <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-txtblack">Our Mission</h3>
+              <p className="text-gray-600 mb-6">
+                We're dedicated to empowering businesses with innovative technology solutions that 
+                optimize operations, improve efficiency, and drive growth. Our client-centric approach 
+                ensures we deliver tailored solutions that address your unique challenges.
+              </p>
+              <Button variant="outline" className="border-skyblue text-skyblue hover:bg-skyblue hover:text-white">
+                Learn More About Us
+              </Button>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-skyblue/10 p-2 rounded">
+                  <Users className="h-5 w-5 text-skyblue" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-txtblack">Client-Focused Approach</h4>
+                  <p className="text-gray-600 text-sm">Your success is our priority, with solutions tailored to your needs.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="bg-skyblue/10 p-2 rounded">
+                  <Award className="h-5 w-5 text-skyblue" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-txtblack">Industry Excellence</h4>
+                  <p className="text-gray-600 text-sm">Award-winning solutions recognized for their innovation and impact.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="bg-skyblue/10 p-2 rounded">
+                  <ShieldCheck className="h-5 w-5 text-skyblue" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-txtblack">Trust & Security</h4>
+                  <p className="text-gray-600 text-sm">Enterprise-grade security protocols protecting your valuable data.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </Section>
