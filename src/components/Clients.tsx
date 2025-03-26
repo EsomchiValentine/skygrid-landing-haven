@@ -27,7 +27,7 @@ const Clients: React.FC = () => {
     },
     {
       name: "CGC - Your Clean Energy Partner",
-      logo: "/lovable-uploads/a5220e61-90a5-4597-945d-2b3669944bd2.png"
+      logo: "/lovable-uploads/13fbd8ee-009f-4dc6-b1a6-ee1e9b4cad42.png"
     }
   ];
 
