@@ -33,7 +33,25 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:flex items-center justify-center">
+            {/* Cloud Image */}
+            <div className="relative z-10 animate-fade-in" style={{ animationDelay: '800ms' }}>
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-800">
+                <img 
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Cloud Computing Network" 
+                  className="w-full h-auto object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-transparent to-transparent rounded-2xl"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-white font-medium text-sm bg-skyblue/80 inline-block px-3 py-1 rounded-full backdrop-blur-sm">
+                    Next-gen cloud infrastructure
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Visual elements and glow effects */}
             <div className="absolute top-12 -right-16 w-64 h-64 bg-skyblue opacity-20 rounded-full filter blur-3xl animate-pulse-subtle"></div>
             <div className="absolute -bottom-8 -left-16 w-64 h-64 bg-blue-400 opacity-10 rounded-full filter blur-3xl animate-pulse-subtle" style={{ animationDelay: '1000ms' }}></div>
             
