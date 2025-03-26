@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import Section from './Section';
 import Container from './Container';
@@ -6,9 +5,9 @@ import Container from './Container';
 const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      quote: "Skygridtech's cloud platform transformed our infrastructure capabilities. We've reduced costs by 35% while significantly improving performance and reliability.",
-      author: "Sarah Johnson",
-      title: "CTO, TechNova Solutions",
+      quote: "The custom software developed by SkyGridTech perfectly aligned with our business processes. Their team's attention to detail and technical expertise exceeded our expectations.",
+      author: "Chukwudumebi Amadi",
+      title: "Co-founder, Purple Life Technology",
       avatar: "avatar-1.jpg"
     },
     {
@@ -65,7 +64,6 @@ const Testimonials: React.FC = () => {
       setIsAnimating(false);
     }, 500);
     
-    // Reset interval
     stopAutoSlide();
     startAutoSlide();
   };
