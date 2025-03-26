@@ -36,9 +36,9 @@ const Header: React.FC = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          <div className={`w-6 h-0.5 bg-white ${isMenuOpen ? 'translate-y-1 rotate-45' : ''}`} />
-          <div className={`w-6 h-0.5 bg-white mt-1.5 ${isMenuOpen ? 'opacity-0' : ''}`} />
-          <div className={`w-6 h-0.5 bg-white mt-1.5 ${isMenuOpen ? '-translate-y-1 -rotate-45' : ''}`} />
+          <div className={`w-6 h-0.5 bg-skyblue ${isMenuOpen ? 'translate-y-1 rotate-45' : ''}`} />
+          <div className={`w-6 h-0.5 bg-skyblue mt-1.5 ${isMenuOpen ? 'opacity-0' : ''}`} />
+          <div className={`w-6 h-0.5 bg-skyblue mt-1.5 ${isMenuOpen ? '-translate-y-1 -rotate-45' : ''}`} />
         </button>
         
         <nav className="hidden md:flex items-center space-x-8">
@@ -77,7 +77,7 @@ interface NavLinksProps {
 }
 
 const NavLinks: React.FC<NavLinksProps> = ({ onClick, direction = 'horizontal' }) => {
-  const linkClasses = "text-white hover:text-skyblue relative group";
+  const linkClasses = "text-skyblue hover:text-skydark relative group";
   
   return (
     <div className={`flex ${direction === 'vertical' ? 'flex-col space-y-6' : 'space-x-8'}`}>
