@@ -92,9 +92,6 @@ const AboutUs: React.FC = () => {
                 optimize operations, improve efficiency, and drive growth. Our client-centric approach 
                 ensures we deliver tailored solutions that address your unique challenges.
               </p>
-              <Button variant="outline" className="border-skyblue text-skyblue hover:bg-skyblue hover:text-white">
-                Learn More About Us
-              </Button>
             </div>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
