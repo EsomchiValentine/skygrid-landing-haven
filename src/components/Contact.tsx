@@ -146,7 +146,7 @@ const Contact = () => {
                 <Button 
                   type="button"
                   variant={contactMethod === 'whatsapp' ? 'default' : 'outline'}
-                  className={contactMethod === 'whatsapp' ? 'bg-skyblue text-white' : 'text-white'}
+                  className={contactMethod === 'whatsapp' ? 'bg-skyblue text-white' : 'bg-black text-white border-gray-700 hover:bg-gray-800'}
                   onClick={() => setContactMethod('whatsapp')}
                 >
                   <Send className="mr-2 h-4 w-4" />
