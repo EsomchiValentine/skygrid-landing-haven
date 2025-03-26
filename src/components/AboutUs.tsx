@@ -4,6 +4,7 @@ import Section from './Section';
 import Container from './Container';
 import { Award, Users, Clock, ShieldCheck } from 'lucide-react';
 import { Button } from './ui/button';
+import { Card, CardContent } from './ui/card';
 
 const AboutUs: React.FC = () => {
   const teams = [
@@ -50,16 +51,16 @@ const AboutUs: React.FC = () => {
           </div>
           
           <div className="relative">
-            <div className="bg-white rounded-xl overflow-hidden shadow-xl">
+            <Card className="overflow-hidden shadow-xl border-0">
               <img 
-                src="/lovable-uploads/ccbebf31-21e0-4b05-9655-4d179c453cf4.png" 
-                alt="Our Team" 
-                className="w-full h-auto object-cover"
+                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
+                alt="Our Team Collaboration" 
+                className="w-full h-auto object-cover aspect-[4/3]"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                <p className="text-white font-medium">Our global team working together to deliver innovation</p>
-              </div>
-            </div>
+              <CardContent className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <p className="text-white font-medium">Our global team collaborating on innovative solutions</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
         
