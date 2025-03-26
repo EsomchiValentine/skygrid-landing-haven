@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Section from './Section';
 import Container from './Container';
 import { 
@@ -39,6 +39,20 @@ const Clients: React.FC = () => {
     }
   ];
 
+  const [rotation, setRotation] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  
+  // Auto-rotate the globe
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setRotation(prev => (prev + 0.5) % 360);
+      }, 50);
+      
+      return () => clearInterval(interval);
+    }
+  }, [isPaused]);
+
   return (
     <Section className="py-16 bg-gray-100" id="clients">
       <Container>
@@ -53,36 +67,51 @@ const Clients: React.FC = () => {
         </div>
         
         <div className="relative max-w-5xl mx-auto px-10">
-          <Carousel
-            className="w-full"
-            opts={{
-              align: "center",
-              loop: true,
-            }}
+          <div 
+            className="aspect-square max-w-lg mx-auto relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
-            <CarouselContent>
-              {clientLogos.map((client, index) => (
-                <CarouselItem key={index} className="basis-1/1 md:basis-1/2 lg:basis-1/3 pl-4">
-                  <div className="p-1">
-                    <div className="h-40 flex items-center justify-center p-6 glass-panel rounded-xl group hover:bg-white/10 transition-all duration-300">
-                      <img 
-                        src={client.logo} 
-                        alt={client.name} 
-                        className="h-full object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" 
-                      />
-                    </div>
-                    <h3 className="text-center text-gray-700 mt-3 font-medium opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">{client.name}</h3>
+            {clientLogos.map((client, index) => {
+              // Calculate position on the circle
+              const angle = (rotation + index * (360 / clientLogos.length)) % 360;
+              const radian = (angle * Math.PI) / 180;
+              const x = 50 + 40 * Math.cos(radian);
+              const y = 50 + 40 * Math.sin(radian);
+              
+              // Calculate z-index based on y-position to create depth effect
+              const zIndex = Math.round(50 - 40 * Math.sin(radian));
+              
+              // Calculate scale based on y-position for perspective effect
+              const scale = 0.7 + 0.3 * (y / 100);
+              
+              return (
+                <div
+                  key={index}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    zIndex,
+                    transform: `translate(-50%, -50%) scale(${scale})`,
+                    transition: 'transform 0.3s ease-out'
+                  }}
+                >
+                  <div className="w-24 h-24 md:w-32 md:h-32 glass-panel rounded-full flex items-center justify-center group-hover:bg-white/10 cursor-pointer">
+                    <img 
+                      src={client.logo} 
+                      alt={client.name} 
+                      className="max-h-16 md:max-h-20 max-w-16 md:max-w-20 object-contain transition-transform duration-300 group-hover:scale-110" 
+                    />
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-0 bg-gray-800 text-white hover:bg-gray-700">
-              <ArrowLeft className="h-5 w-5" />
-            </CarouselPrevious>
-            <CarouselNext className="right-0 bg-gray-800 text-white hover:bg-gray-700">
-              <ArrowRight className="h-5 w-5" />
-            </CarouselNext>
-          </Carousel>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-center">
+                    <span className="bg-gray-800 text-white px-2 py-1 rounded text-sm">{client.name}</span>
+                  </div>
+                </div>
+              );
+            })}
+            <div className="absolute inset-0 rounded-full border-2 border-gray-200 border-dashed opacity-30 pointer-events-none"></div>
+          </div>
         </div>
       </Container>
     </Section>
