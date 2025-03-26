@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Logo from './Logo';
@@ -98,7 +99,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ onClick, direction = 'horizontal' }
         <span className={underlineClasses}></span>
       </a>
       <a href="#contact" className={linkClasses} onClick={onClick}>
-        Contact
+        Contact Us
         <span className={underlineClasses}></span>
       </a>
     </div>
