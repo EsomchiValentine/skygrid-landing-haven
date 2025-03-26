@@ -14,20 +14,28 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const Clients: React.FC = () => {
   const clientLogos = [
     {
-      name: "Mide Premium Oil & Gas",
-      logo: "/lovable-uploads/704cc05e-ffa3-4112-bcac-a85b183fe88c.png"
+      name: "Ibom Metropolitan Polytechnic",
+      logo: "/lovable-uploads/76a18191-6317-4fac-8f75-0ede7d1ff5ad.png"
     },
     {
-      name: "Servease",
-      logo: "/lovable-uploads/917f8cdf-ab57-49cb-af41-5d6a8ac7209b.png"
+      name: "White Logo",
+      logo: "/lovable-uploads/24abf395-fe41-42ca-afea-434240aa1d17.png"
     },
     {
-      name: "PCNGi Pi-CNG",
-      logo: "/lovable-uploads/ef50a0f7-492f-4080-9c09-0596920080e1.png"
+      name: "Bokolo HSIC Group Limited",
+      logo: "/lovable-uploads/8d6e5d68-0106-4a3d-aa66-fe0f39c3c214.png"
     },
     {
-      name: "CGC - Your Clean Energy Partner",
-      logo: "/lovable-uploads/13fbd8ee-009f-4dc6-b1a6-ee1e9b4cad42.png"
+      name: "Transport Company",
+      logo: "/lovable-uploads/6f720819-5c56-400f-98b7-b05a3232c204.png"
+    },
+    {
+      name: "MSK My Student KIT",
+      logo: "/lovable-uploads/fc7d63f2-77d5-4d9e-a1f1-1ec95c6969b6.png"
+    },
+    {
+      name: "FinTrak Software",
+      logo: "/lovable-uploads/94f4fc3e-368d-4b52-8f8f-881f19c6cde6.png"
     }
   ];
 
@@ -56,7 +64,7 @@ const Clients: React.FC = () => {
               {clientLogos.map((client, index) => (
                 <CarouselItem key={index} className="basis-1/1 md:basis-1/2 lg:basis-1/3 pl-4">
                   <div className="p-1">
-                    <div className="h-40 flex items-center justify-center p-6 bg-gray-900 rounded-xl border border-gray-800 shadow-md transition-all hover:shadow-lg hover:-translate-y-1 duration-300">
+                    <div className="h-40 flex items-center justify-center p-6 bg-white rounded-xl border border-gray-200 shadow-md transition-all hover:shadow-lg hover:-translate-y-1 duration-300">
                       <img 
                         src={client.logo} 
                         alt={client.name} 
