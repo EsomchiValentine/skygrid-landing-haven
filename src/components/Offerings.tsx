@@ -58,12 +58,12 @@ const Offerings: React.FC = () => {
   ];
 
   return (
-    <Section className="py-20 bg-gray-50" id="offerings">
+    <Section className="py-20 bg-gray-900" id="offerings">
       <Container>
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-skyblue text-sm font-medium mb-4">OUR OFFERINGS</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-txtblack">Amazon AWS Solutions</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <span className="inline-block px-4 py-2 rounded-full bg-gray-800 text-skyblue text-sm font-medium mb-4">OUR OFFERINGS</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Amazon AWS Solutions</h2>
+          <p className="text-gray-400 max-w-3xl mx-auto">
             We provide a comprehensive range of Amazon AWS services to help your business leverage the
             power of cloud computing.
           </p>
@@ -71,11 +71,11 @@ const Offerings: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {awsServices.map((service, index) => (
-            <Card key={index} className="border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-white">
+            <Card key={index} className="border border-gray-800 shadow-lg hover:shadow-xl transition-shadow bg-gray-800 hover:bg-gray-700">
               <CardContent className="p-6">
-                <div className="mb-4 bg-blue-50 inline-block p-3 rounded-lg">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-txtblack">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <div className="mb-4 bg-gray-900 inline-block p-3 rounded-lg">{service.icon}</div>
+                <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
+                <p className="text-gray-300">{service.description}</p>
               </CardContent>
             </Card>
           ))}

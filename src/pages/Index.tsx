@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
 import Solutions from '@/components/Solutions';
 import Offerings from '@/components/Offerings';
+import Clients from '@/components/Clients';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
@@ -42,12 +43,13 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black text-white">
       <Header />
       <main>
         <Hero />
         <AboutUs />
         <Solutions />
+        <Clients />
         <Offerings />
       </main>
       <Footer />

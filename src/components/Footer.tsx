@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#1A1F2C] text-gray-300 py-16">
+    <footer className="bg-[#111] text-gray-300 py-16">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Logo and description section */}
@@ -80,7 +80,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               {[
                 { name: "About Us", href: "#about" },
-                { name: "Contact", href: "#" }
+                { name: "Clients", href: "#clients" },
+                { name: "Contact Us", href: "#contact" }
               ].map((link, index) => (
                 <li key={index} className="flex items-center">
                   <svg 
@@ -109,7 +110,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <Separator className="my-10 bg-gray-700" />
+        <Separator className="my-10 bg-gray-800" />
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
