@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Section from './Section';
 import Container from './Container';
@@ -32,37 +33,6 @@ const AboutUs: React.FC = () => {
   return (
     <Section className="py-20 bg-black" id="about">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          <div>
-            <span className="inline-block px-4 py-2 rounded-full bg-gray-800 text-skyblue text-sm font-medium mb-4">ABOUT US</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-              Innovation-Driven Solutions for Modern Businesses
-            </h2>
-            <p className="text-gray-400 mb-8">
-              Founded in 2013, SkyGridTech has been at the forefront of digital transformation, 
-              helping businesses across industries leverage technology to achieve their goals. 
-              Our team of experts brings decades of combined experience to every project, 
-              ensuring exceptional results that drive real business value.
-            </p>
-            <Button className="bg-skyblue hover:bg-skydark">
-              Meet Our Team
-            </Button>
-          </div>
-          
-          <div className="relative">
-            <Card className="overflow-hidden shadow-xl border-0 border-gray-800 bg-gray-900">
-              <img 
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
-                alt="Our Team Collaboration" 
-                className="w-full h-auto object-cover aspect-[16/9] opacity-80"
-              />
-              <CardContent className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-white font-medium">Our global team collaborating on innovative solutions</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-        
         <div className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-white">Our Core Teams</h3>
