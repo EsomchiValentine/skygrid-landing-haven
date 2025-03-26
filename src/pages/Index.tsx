@@ -1,10 +1,10 @@
+
 import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Solutions from '@/components/Solutions';
 import Testimonials from '@/components/Testimonials';
-import Cta from '@/components/Cta';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
@@ -49,7 +49,6 @@ const Index = () => {
         <Features />
         <Solutions />
         <Testimonials />
-        <Cta />
       </main>
       <Footer />
       <ScrollToTop />
