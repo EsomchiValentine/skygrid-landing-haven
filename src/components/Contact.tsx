@@ -55,7 +55,7 @@ const Contact = () => {
       window.open(mailtoLink, '_blank');
     } else {
       // WhatsApp submission - using proper WhatsApp API format
-      const phoneNumber = '2348153428584'; // Remove the '+' as it's included in the URL format
+      const phoneNumber = '2348153428584'; // Without the '+' as it's included in the URL format
       const whatsappMessage = `Hello, my name is ${data.name}. ${data.message} (Reply to: ${data.email})`;
       const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
       window.open(whatsappUrl, '_blank');
@@ -75,6 +75,12 @@ const Contact = () => {
     });
 
     form.reset();
+  };
+
+  // Direct WhatsApp button handler without form submission
+  const handleDirectWhatsAppClick = () => {
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=2348153428584&text=${encodeURIComponent("Hello, I'm interested in your services. Can we chat?")}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -120,6 +126,15 @@ const Contact = () => {
                     <a href="tel:+2348153428584" className="text-skyblue hover:underline">
                       +234 815 342 8584
                     </a>
+                    <Button 
+                      onClick={handleDirectWhatsAppClick} 
+                      variant="outline" 
+                      className="mt-2 bg-black text-white border-gray-700 hover:bg-gray-800"
+                      size="sm"
+                    >
+                      <Send className="mr-2 h-4 w-4" />
+                      Chat on WhatsApp
+                    </Button>
                   </div>
                 </div>
               </CardContent>
