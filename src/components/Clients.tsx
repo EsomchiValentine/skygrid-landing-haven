@@ -1,16 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+
+import React from 'react';
 import Section from './Section';
 import Container from './Container';
 import { 
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious
 } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Clients: React.FC = () => {
-  // Create a reference to the carousel for auto-scrolling
-  const carouselRef = useRef<HTMLDivElement>(null);
-  
   const clientLogos = [
     {
       name: "Mide Premium Oil & Gas",
@@ -30,44 +31,6 @@ const Clients: React.FC = () => {
     }
   ];
 
-  // Auto-scroll effect
-  useEffect(() => {
-    if (!carouselRef.current) return;
-    
-    const scrollSpeed = 1; // pixels per frame
-    let scrollPosition = 0;
-    let animationFrameId: number;
-    
-    const scroll = () => {
-      if (!carouselRef.current) return;
-      
-      const container = carouselRef.current;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      // Increment scroll position
-      scrollPosition += scrollSpeed;
-      
-      // Reset when reaching the end
-      if (scrollPosition >= maxScroll) {
-        scrollPosition = 0;
-      }
-      
-      // Apply scroll
-      container.scrollLeft = scrollPosition;
-      
-      // Continue animation
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-    
-    // Start animation
-    animationFrameId = requestAnimationFrame(scroll);
-    
-    // Cleanup on unmount
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
     <Section className="py-16 bg-gray-100" id="clients">
       <Container>
@@ -81,45 +44,36 @@ const Clients: React.FC = () => {
           </p>
         </div>
         
-        <div className="relative overflow-hidden">
-          {/* Gradient overlay on left */}
-          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-100 to-transparent z-10"></div>
-          
-          {/* Gradient overlay on right */}
-          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-100 to-transparent z-10"></div>
-          
+        <div className="relative max-w-5xl mx-auto px-10">
           <Carousel
-            className="w-full max-w-6xl mx-auto"
+            className="w-full"
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
           >
-            <CarouselContent ref={carouselRef} className="gap-8">
+            <CarouselContent>
               {clientLogos.map((client, index) => (
-                <CarouselItem key={index} className="basis-auto min-w-max">
-                  <div className="mx-4 h-40 flex items-center justify-center p-6 bg-gray-900 rounded-xl border border-gray-800 shadow-sm">
-                    <img 
-                      src={client.logo} 
-                      alt={client.name} 
-                      className="h-full object-contain" 
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-              {/* Duplicate logos for continuous scrolling effect */}
-              {clientLogos.map((client, index) => (
-                <CarouselItem key={`duplicate-${index}`} className="basis-auto min-w-max">
-                  <div className="mx-4 h-40 flex items-center justify-center p-6 bg-gray-900 rounded-xl border border-gray-800 shadow-sm">
-                    <img 
-                      src={client.logo} 
-                      alt={client.name} 
-                      className="h-full object-contain" 
-                    />
+                <CarouselItem key={index} className="basis-1/1 md:basis-1/2 lg:basis-1/3 pl-4">
+                  <div className="p-1">
+                    <div className="h-40 flex items-center justify-center p-6 bg-gray-900 rounded-xl border border-gray-800 shadow-md transition-all hover:shadow-lg hover:-translate-y-1 duration-300">
+                      <img 
+                        src={client.logo} 
+                        alt={client.name} 
+                        className="h-full object-contain" 
+                      />
+                    </div>
+                    <h3 className="text-center text-gray-700 mt-3 font-medium">{client.name}</h3>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <CarouselPrevious className="left-0 bg-gray-800 text-white hover:bg-gray-700">
+              <ChevronLeft className="h-5 w-5" />
+            </CarouselPrevious>
+            <CarouselNext className="right-0 bg-gray-800 text-white hover:bg-gray-700">
+              <ChevronRight className="h-5 w-5" />
+            </CarouselNext>
           </Carousel>
         </div>
       </Container>
