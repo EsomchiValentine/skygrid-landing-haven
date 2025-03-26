@@ -17,13 +17,13 @@ const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-medium transition-all focus:outline-none focus:ring-2 focus:ring-skyblue focus:ring-offset-2";
+  const baseStyles = "inline-flex items-center justify-center font-medium transition-all focus:outline-none focus:ring-2 focus:ring-skyblue focus:ring-offset-2 focus:ring-offset-black";
   
   const variants = {
     primary: "bg-skyblue text-white hover:bg-skydark shadow-sm",
-    secondary: "bg-gray-100 text-txtblack hover:bg-gray-200",
-    outline: "border border-gray-300 bg-transparent hover:bg-gray-50 text-txtblack",
-    ghost: "bg-transparent hover:bg-gray-100 text-txtblack"
+    secondary: "bg-gray-800 text-white hover:bg-gray-700",
+    outline: "border border-gray-600 bg-transparent hover:bg-gray-800 text-white",
+    ghost: "bg-transparent hover:bg-gray-800 text-white"
   };
   
   const sizes = {
