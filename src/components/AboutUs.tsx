@@ -3,6 +3,7 @@ import React from 'react';
 import Section from './Section';
 import Container from './Container';
 import { Check } from 'lucide-react';
+import Button from './Button';
 
 const AboutUs: React.FC = () => {
   const features = [
@@ -39,7 +40,7 @@ const AboutUs: React.FC = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="bg-gray-900 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/lovable-uploads/f69ee069-ddbe-459e-8a55-059761a4b9de.png" 
+                src="/lovable-uploads/ccbebf31-21e0-4b05-9655-4d179c453cf4.png" 
                 alt="Code on screen" 
                 className="w-full h-auto"
               />
@@ -78,9 +79,13 @@ const AboutUs: React.FC = () => {
               ))}
             </div>
             
-            <button className="bg-skyblue hover:bg-skydark px-8 py-3 text-white font-medium rounded-md">
+            <Button
+              variant="primary"
+              size="lg"
+              className="font-medium"
+            >
               Explore Our Services
-            </button>
+            </Button>
           </div>
         </div>
       </Container>
