@@ -36,7 +36,6 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 const Contact = () => {
-  const [contactMethod, setContactMethod] = useState<'email' | 'whatsapp'>('email');
   const [showSuccess, setShowSuccess] = useState(false);
 
   const form = useForm<FormValues>({
@@ -49,29 +48,13 @@ const Contact = () => {
   });
 
   const onSubmit = (data: FormValues) => {
-    if (contactMethod === 'email') {
-      // Email submission - open default email client
-      const mailtoLink = `mailto:info@skygridtech.org?subject=Contact from ${data.name}&body=${encodeURIComponent(data.message)}%0A%0AFrom: ${data.name}%0AEmail: ${data.email}`;
-      window.open(mailtoLink, '_blank');
-    } else {
-      // WhatsApp submission - using proper WhatsApp API format
-      const phoneNumber = '2348153428584'; // Without the '+' as it's included in the URL format
-      const whatsappMessage = `Hello, my name is ${data.name}. ${data.message} (Reply to: ${data.email})`;
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
-      window.open(whatsappUrl, '_blank');
-      
-      // Show success dialog for WhatsApp
-      setShowSuccess(true);
-      
-      // Hide success dialog after 3 seconds
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 3000);
-    }
+    // Email submission - open default email client
+    const mailtoLink = `mailto:info@skygridtech.org?subject=Contact from ${data.name}&body=${encodeURIComponent(data.message)}%0A%0AFrom: ${data.name}%0AEmail: ${data.email}`;
+    window.open(mailtoLink, '_blank');
 
     toast({
       title: "Message Sent!",
-      description: `Your message has been sent via ${contactMethod === 'email' ? 'email' : 'WhatsApp'}.`,
+      description: "Your message has been sent via email.",
     });
 
     form.reset();
@@ -162,29 +145,6 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-            
-            <div className="mb-6">
-              <div className="flex space-x-4">
-                <Button 
-                  type="button"
-                  variant={contactMethod === 'email' ? 'default' : 'outline'}
-                  className={contactMethod === 'email' ? 'bg-skyblue text-white' : 'text-white'}
-                  onClick={() => setContactMethod('email')}
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  Via Email
-                </Button>
-                <Button 
-                  type="button"
-                  variant={contactMethod === 'whatsapp' ? 'default' : 'outline'}
-                  className={contactMethod === 'whatsapp' ? 'bg-skyblue text-white' : 'bg-black text-white border-gray-700 hover:bg-gray-800'}
-                  onClick={() => setContactMethod('whatsapp')}
-                >
-                  <Send className="mr-2 h-4 w-4" />
-                  Via WhatsApp
-                </Button>
-              </div>
-            </div>
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
