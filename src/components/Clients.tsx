@@ -54,14 +54,14 @@ const Clients: React.FC = () => {
   }, [isPaused]);
 
   return (
-    <Section className="py-16 bg-gray-100" id="clients">
+    <Section className="py-16 bg-black" id="clients">
       <Container>
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 rounded-full bg-gray-800 text-skyblue text-sm font-medium mb-4">
             OUR CLIENTS
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Trusted by Industry Leaders</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Trusted by Industry Leaders</h2>
+          <p className="text-gray-300 max-w-3xl mx-auto">
             We're proud to work with these innovative companies who trust our expertise
           </p>
         </div>
@@ -110,7 +110,7 @@ const Clients: React.FC = () => {
                 </div>
               );
             })}
-            <div className="absolute inset-0 rounded-full border-2 border-gray-200 border-dashed opacity-30 pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-full border-2 border-white/10 border-dashed opacity-30 pointer-events-none"></div>
           </div>
         </div>
       </Container>
