@@ -70,24 +70,24 @@ const Clients: React.FC = () => {
   }, []);
 
   return (
-    <Section className="py-16 bg-white" id="clients">
+    <Section className="py-16 bg-black" id="clients">
       <Container>
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 rounded-full bg-gray-100 text-skyblue text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-gray-800 text-skyblue text-sm font-medium mb-4">
             OUR CLIENTS
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-txtblack">Trusted by Industry Leaders</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Trusted by Industry Leaders</h2>
+          <p className="text-gray-400 max-w-3xl mx-auto">
             We're proud to work with these innovative companies who trust our expertise
           </p>
         </div>
         
         <div className="relative overflow-hidden">
           {/* Gradient overlay on left */}
-          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10"></div>
           
           {/* Gradient overlay on right */}
-          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10"></div>
           
           <Carousel
             className="w-full max-w-6xl mx-auto"
@@ -99,7 +99,7 @@ const Clients: React.FC = () => {
             <CarouselContent ref={carouselRef} className="gap-8">
               {clientLogos.map((client, index) => (
                 <CarouselItem key={index} className="basis-auto min-w-max">
-                  <div className="mx-4 h-40 flex items-center justify-center p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+                  <div className="mx-4 h-40 flex items-center justify-center p-6 bg-gray-900 rounded-xl border border-gray-800 shadow-sm">
                     <img 
                       src={client.logo} 
                       alt={client.name} 
@@ -111,7 +111,7 @@ const Clients: React.FC = () => {
               {/* Duplicate logos for continuous scrolling effect */}
               {clientLogos.map((client, index) => (
                 <CarouselItem key={`duplicate-${index}`} className="basis-auto min-w-max">
-                  <div className="mx-4 h-40 flex items-center justify-center p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+                  <div className="mx-4 h-40 flex items-center justify-center p-6 bg-gray-900 rounded-xl border border-gray-800 shadow-sm">
                     <img 
                       src={client.logo} 
                       alt={client.name} 

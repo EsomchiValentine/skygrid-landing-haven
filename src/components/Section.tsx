@@ -65,7 +65,7 @@ const Section: React.FC<SectionProps> = ({
       id={id}
       ref={sectionRef}
       className={cn(
-        'py-16 md:py-24 px-6',
+        'py-16 md:py-24 px-6 bg-black',
         getAnimationClass(),
         className
       )}
