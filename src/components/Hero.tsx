@@ -24,12 +24,14 @@ const Hero: React.FC = () => {
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '700ms' }}>
               <Button size="lg">Get Started</Button>
-              <Button variant="outline" size="lg" className="border-gray-700 text-white hover:bg-gray-800">
-                Explore Services
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
-                  <path d="m9 18 6-6-6-6"/>
-                </svg>
-              </Button>
+              <a href="#offerings">
+                <Button variant="outline" size="lg" className="border-gray-700 text-white hover:bg-gray-800">
+                  Explore Services
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </Button>
+              </a>
             </div>
           </div>
           
