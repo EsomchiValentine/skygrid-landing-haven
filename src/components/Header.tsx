@@ -1,7 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Logo from './Logo';
-import { Button } from '@/components/ui/button';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,13 +42,6 @@ const Header: React.FC = () => {
         
         <nav className="hidden md:flex items-center space-x-8">
           <NavLinks />
-          <div className="flex items-center">
-            <Button 
-              className="bg-skyblue hover:bg-skydark text-white font-medium rounded-md"
-            >
-              Get Started
-            </Button>
-          </div>
         </nav>
         
         <div className={`fixed inset-0 bg-black z-10 ${
@@ -56,13 +49,6 @@ const Header: React.FC = () => {
         } md:hidden`}>
           <div className="flex flex-col items-center justify-center h-full text-center space-y-8">
             <NavLinks onClick={() => setIsMenuOpen(false)} direction="vertical" />
-            <div className="flex flex-col items-center gap-4 mt-8">
-              <Button 
-                className="bg-skyblue hover:bg-skydark text-white font-medium rounded-md w-40"
-              >
-                Get Started
-              </Button>
-            </div>
           </div>
         </div>
       </div>
