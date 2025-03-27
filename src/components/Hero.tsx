@@ -23,7 +23,9 @@ const Hero: React.FC = () => {
               Transform your business with our cutting-edge cloud computing and software solutions designed for the modern enterprise.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '700ms' }}>
-              <Button size="lg">Get Started</Button>
+              <a href="#contact">
+                <Button size="lg">Get Started</Button>
+              </a>
               <a href="#offerings">
                 <Button variant="outline" size="lg" className="border-gray-700 text-white hover:bg-gray-800">
                   Explore Services
