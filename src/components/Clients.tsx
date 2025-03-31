@@ -16,7 +16,7 @@ const Clients: React.FC = () => {
       logo: "/lovable-uploads/76a18191-6317-4fac-8f75-0ede7d1ff5ad.png"
     },
     {
-      name: "White Logo",
+      name: "CGC Gas Limited",
       logo: "/lovable-uploads/24abf395-fe41-42ca-afea-434240aa1d17.png"
     },
     {
