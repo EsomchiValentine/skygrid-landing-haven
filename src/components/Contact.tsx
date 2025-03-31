@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -49,7 +48,7 @@ const Contact = () => {
 
   const onSubmit = (data: FormValues) => {
     // Email submission - open default email client
-    const mailtoLink = `mailto:info@skygridtech.org?subject=Contact from ${data.name}&body=${encodeURIComponent(data.message)}%0A%0AFrom: ${data.name}%0AEmail: ${data.email}`;
+    const mailtoLink = `mailto:support@skygridtech.org?subject=Contact from ${data.name}&body=${encodeURIComponent(data.message)}%0A%0AFrom: ${data.name}%0AEmail: ${data.email}`;
     window.open(mailtoLink, '_blank');
 
     toast({
@@ -90,8 +89,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-lg mb-1">Email</h4>
-                    <a href="mailto:info@skygridtech.org" className="text-skyblue hover:underline">
-                      info@skygridtech.org
+                    <a href="mailto:support@skygridtech.org" className="text-skyblue hover:underline">
+                      support@skygridtech.org
                     </a>
                   </div>
                 </div>
