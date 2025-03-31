@@ -24,7 +24,7 @@ const Clients: React.FC = () => {
       logo: "/lovable-uploads/8d6e5d68-0106-4a3d-aa66-fe0f39c3c214.png"
     },
     {
-      name: "Transport Company",
+      name: "Presidential CNG Initiative",
       logo: "/lovable-uploads/6f720819-5c56-400f-98b7-b05a3232c204.png"
     },
     {
